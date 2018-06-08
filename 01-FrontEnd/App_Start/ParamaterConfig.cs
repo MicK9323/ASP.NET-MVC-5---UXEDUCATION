@@ -32,6 +32,11 @@ namespace FrontEnd.App_Start
                     p.SetValue(typeof(Parameters), Convert.ToDouble(setting));
                 }
 
+                if (p.PropertyType.Name.ToLower().Equals("decimal"))
+                {
+                    p.SetValue(typeof(Parameters), Convert.ToDecimal(setting));
+                }
+
                 if (p.PropertyType.Name.ToLower().Equals("boolean"))
                 {
                     p.SetValue(typeof(Parameters), (setting.ToLower() == "true"));

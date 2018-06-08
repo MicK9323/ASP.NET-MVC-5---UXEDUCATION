@@ -68,6 +68,18 @@
     <Compile Include="Migrations\201706280313338_Initialize.Designer.cs">
       <DependentUpon>201706280313338_Initialize.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806080113378_Sprint1-ModeloDeDatos-V1.0.cs" />
+    <Compile Include="Migrations\201806080113378_Sprint1-ModeloDeDatos-V1.0.Designer.cs">
+      <DependentUpon>201806080113378_Sprint1-ModeloDeDatos-V1.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806080152264_Sprint2-AddingAuditoryFields.cs" />
+    <Compile Include="Migrations\201806080152264_Sprint2-AddingAuditoryFields.Designer.cs">
+      <DependentUpon>201806080152264_Sprint2-AddingAuditoryFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806080216452_ErrorInMigration1.cs" />
+    <Compile Include="Migrations\201806080216452_ErrorInMigration1.Designer.cs">
+      <DependentUpon>201806080216452_ErrorInMigration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -90,6 +102,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706280313338_Initialize.resx">
       <DependentUpon>201706280313338_Initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806080113378_Sprint1-ModeloDeDatos-V1.0.resx">
+      <DependentUpon>201806080113378_Sprint1-ModeloDeDatos-V1.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806080152264_Sprint2-AddingAuditoryFields.resx">
+      <DependentUpon>201806080152264_Sprint2-AddingAuditoryFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806080216452_ErrorInMigration1.resx">
+      <DependentUpon>201806080216452_ErrorInMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
