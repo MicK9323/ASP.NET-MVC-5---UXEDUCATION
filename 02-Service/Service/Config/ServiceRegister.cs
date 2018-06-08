@@ -3,6 +3,8 @@ using Model.Auth;
 using Model.Domain;
 using Persistence.DbContextScope;
 using Persistence.Repository;
+using Service.Services;
+using Service.Services.Implements;
 
 namespace Service.Config
 {
@@ -18,6 +20,7 @@ namespace Service.Config
             container.Register<IRepository<ApplicationUser>>((x) => new Repository<ApplicationUser>(ambientDbContextLocator));
             container.Register<IRepository<ApplicationRole>>((x) => new Repository<ApplicationRole>(ambientDbContextLocator));
             container.Register<IRepository<ApplicationUserRole>>((x) => new Repository<ApplicationUserRole>(ambientDbContextLocator));
+            container.Register<IUserService, UserService>();
         }
     }
 }

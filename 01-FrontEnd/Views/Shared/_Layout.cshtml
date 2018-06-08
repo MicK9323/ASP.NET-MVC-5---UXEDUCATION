@@ -12,6 +12,16 @@
     <link href="~/Assets/css/style.css" rel="stylesheet" />
 
     @RenderSection("header", required: false)
+    <style>
+        html {
+            min-height: 100%;
+            position: relative;
+        }
+        body{
+            padding-bottom: 70px;
+            margin-bottom: 70px;
+        }
+    </style>
 </head>
 <body>
     @Html.Partial("_Menu")
@@ -24,24 +34,17 @@
         </div>
     </div>
 
-    <footer id="footer">
+    <footer id="footer" style="position: absolute; bottom:0; width:100%;">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <p class="remove-margin-bottom">
-                        &copy; @DateTime.Now.Year - <b>@Parameters.ProjectName</b> @Parameters.ProjectVersion powered by <a href="http://anexsoft.com" target="_blank">Anexsoft</a>
+                        &copy; @DateTime.Now.Year - <b>@Parameters.ProjectName</b> @Parameters.ProjectVersion powered by <a href="javascript:void(0)">ASP.NET</a>
                         <span class="slogan">Buscamos ser la primera plataforma lider en español de enseñanza online.</span>
-                        <span class="slogan">Material desarrollado para el Curso de <b>ASP.NET MVC 5 + VueJS</b> hecho por <a href="http://anexsoft.com" target="_blank">Anexsoft</a> y <a href="mailto:eduardo@anexsoft.com">Eduardo Rodríguez</a>.</span>
+                        <span class="slogan">
+                            Material desarrollado para el Curso de <b>Desarrollo de Servicios Web I</b>
+                        </span>
                     </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 links">
-                    <i class="fa fa-link"></i> 
-                    <a href="#">¿Quiénes somos?</a> -
-                    <a href="#">FAQ</a> -
-                    <a href="#">Conviértete en instructor</a> -
-                    <a href="#">Casos de éxito</a>
                 </div>
             </div>
         </div>
