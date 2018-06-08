@@ -16,9 +16,9 @@ namespace Common
 
         public enum IncomeType
         {
-            Total,
-            CompanyTotal,
-            TeacherTotal
+            Total, // 100%
+            CompanyTotal, //30%
+            TeacherTotal // 70%
         }
 
         public enum PanelMenu
@@ -39,8 +39,12 @@ namespace Common
 
         public enum Status
         {
-            Enable,
-            Disable
+            [Description("Pendiente")]
+            Pending,
+            [Description("Aprovado")]
+            Approved,
+            [Description("Rechazado")]
+            Rejected
         }
 
         public enum MyFilters

@@ -13,12 +13,15 @@ using Model.Auth;
 using Auth.Service;
 using Newtonsoft.Json;
 using Common;
+using Service.Services;
+using FrontEnd.App_Start;
 
 namespace FrontEnd.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly IUserService _userService = DependecyFactory.GetInstance<IUserService>();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -165,7 +168,13 @@ namespace FrontEnd.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                    Name = model.Name,
+                    LastName = model.LastName,
+                    UserName = model.Email,
+                    Email = model.Email,
+                    Credit = Parameters.NewUserCredits
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -184,6 +193,47 @@ namespace FrontEnd.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        // UpdateUser
+        // Task devuelve una tarea ya que los metodos implementados por ASP.Identity son asincronos
+        public async Task<ActionResult> GetCurrentUser()
+        {
+            var userId = CurrentUserHelper.Get.UserId;
+            var model = await UserManager.FindByIdAsync(userId);
+
+            var userView = new UserInformationViewModel
+            {
+                Id = model.Id,
+                Name = model.Name,
+                LastName = model.LastName,
+                Email = model.Email
+            };
+            return View(userView);
+        }
+
+        [HttpPost]
+        public JsonResult Update(UserInformationViewModel model)
+        {
+            var rh = new ResponseHelper();
+
+            if (ModelState.IsValid)
+            {
+                rh = _userService.Update(new ApplicationUser
+                {
+                    Id = model.Id,
+                    Name = model.Name,
+                    LastName = model.LastName,
+                    Email = model.Email
+                });
+
+            }
+            else
+            {
+                rh.SetValidations(ModelState.GetErrors());
+            }
+
+            return Json(rh);
         }
 
         //
